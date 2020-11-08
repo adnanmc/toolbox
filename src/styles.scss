@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+// changing bulma variables
+// adding global styles
+@charset "utf-8";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+// adding font awesome icons
+@import "../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+
+// Set global colors
+@import "./twStyles.scss";
+
+// global styles

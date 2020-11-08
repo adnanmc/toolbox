@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postcss:build": "postcss src/tw.pcss -o src/twStyles.scss",
+    "prestart": "npm run postcss:build",
+    "prebuild": "npm run postcss:build -- --env=production"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +22,10 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "postcss-cli": "^8.2.0",
     "rxjs": "~6.6.0",
+    "tailwindcss": "^1.9.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
