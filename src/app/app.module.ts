@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { JsonToExcelComponent } from './components/json-to-excel/json-to-excel.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CodeEditorModule } from '@ngstack/code-editor';
 
 @NgModule({
   declarations: [
     AppComponent,
     JsonToExcelComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, CodeEditorModule.forRoot()],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

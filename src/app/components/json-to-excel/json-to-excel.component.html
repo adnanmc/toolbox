@@ -3,11 +3,22 @@
     <h1>Convert JSON data into Excel file</h1>
   </div>
 
-  <textarea
+  <!-- <textarea
     class="min-w-full rounded p-2 border-solid border-4 border-gray-600 focus:outline-none focus:shadow-outline focus:border-green-500"
     rows="10"
     placeholder="Paste JSON here ..."
-  ></textarea>
+  ></textarea> -->
+
+  <div class="editor-holder rounded border-solid border-4 border-gray-500">
+    <ngs-code-editor
+      class="editor-itself"
+      [theme]="theme"
+      [codeModel]="codeModel"
+      [options]="options"
+      (valueChanged)="onCodeChanged($event)"
+    >
+    </ngs-code-editor>
+  </div>
 
   <div class="flex flex-col md:flex-row">
     <!-- Left side -->

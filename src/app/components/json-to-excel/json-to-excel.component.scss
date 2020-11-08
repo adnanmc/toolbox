@@ -1,0 +1,10 @@
+.editor-holder {
+  height: 400px;
+}
+.editor-itself {
+  height: 100%;
+}
+:host ::ng-deep .monaco-editor {
+  // padding-top: 5px;
+}
+//*[@id="editor"]
