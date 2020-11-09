@@ -1,10 +1,23 @@
-.editor-holder {
-  height: 400px;
-}
 .editor-itself {
   height: 100%;
 }
-:host ::ng-deep .monaco-editor {
-  // padding-top: 5px;
+// :host ::ng-deep .monaco-editor {
+//   // padding-top: 5px;
+// }
+// //*[@id="editor"]
+
+@media only screen and (max-width: 425px) {
+  .editor-holder {
+    height: 200px;
+  }
 }
-//*[@id="editor"]
+@media only screen and (max-width: 768px) {
+  .editor-holder {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .editor-holder {
+    height: 500px;
+  }
+}

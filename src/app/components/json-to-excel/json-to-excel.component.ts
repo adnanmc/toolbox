@@ -10,6 +10,8 @@ export class JsonToExcelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  fileName: string = 'fileName.xlsx';
+
   theme = 'vs-dark';
 
   codeModel = {
@@ -20,6 +22,7 @@ export class JsonToExcelComponent implements OnInit {
 
   options = {
     contextmenu: true,
+    find: true,
     minimap: {
       enabled: true,
     },

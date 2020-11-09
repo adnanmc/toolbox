@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +16,12 @@ import { CodeEditorModule } from '@ngstack/code-editor';
     NavbarComponent,
     FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, CodeEditorModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    CodeEditorModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
