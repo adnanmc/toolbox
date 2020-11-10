@@ -15,18 +15,10 @@
 
   <div class="flex flex-col md:flex-row">
     <!-- Left side -->
-    <!-- <div class="md:content-start"> -->
-    <button
-      class="bg-blue-500 hover:bg-blue-400 click:bg-blue-400 focus:outline-none text-white font-bold py-2 px-4 rounded mt-2"
-      (click)="paste()"
-    >
-      <i class="fas fa-paste"></i>
-      Paste JSON
-    </button>
 
     <!-- xl filename input -->
     <input
-      class="bg-white focus:outline-none focus:shadow-outline text-center text-gray-500 border border-gray-500 py-2 px-4 rounded mt-2 md:ml-2 md:mr-2"
+      class="bg-white focus:outline-none focus:shadow-outline text-center text-gray-500 border border-gray-500 py-2 px-4 rounded mt-2 md:mr-2"
       type="text"
       [(ngModel)]="fileName"
       placeholder="fileName.xlsx"
@@ -44,7 +36,7 @@
     <!-- Right side -->
     <!-- <div class="md:content-end"> -->
     <button
-      class="bg-red-500 hover:bg-red-400 focus:outline-none text-white font-bold py-2 px-4 rounded mt-2 mb-2 md:ml-auto"
+      class="bg-red-500 hover:bg-red-400 focus:outline-none text-white font-bold py-2 px-4 rounded mt-2 md:ml-auto"
       (click)="resetJaonInput()"
     >
       <i class="fas fa-trash-alt"></i>
