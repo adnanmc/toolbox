@@ -22,6 +22,7 @@ export class JsonToExcelComponent implements OnInit {
     padding: {
       top: 10,
     },
+    formatOnPaste: true,
   };
   resetJaonInput() {
     this.jsonText = null;
