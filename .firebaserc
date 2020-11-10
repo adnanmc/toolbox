@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "toolbox-demo-4156a": {
+      "hosting": {
+        "toolbox": [
+          "toolbox-demo-4156a"
+        ]
+      }
+    }
+  }
+}
