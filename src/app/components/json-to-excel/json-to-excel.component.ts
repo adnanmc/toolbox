@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as XLSX from 'xlsx';
 import { WorkSheet, WorkBook, utils, writeFile } from 'xlsx';
 
 @Component({
