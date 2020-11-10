@@ -5,16 +5,13 @@
   </div>
 
   <div
-    ace-editor
-    [(text)]="jsonText"
-    [mode]="'json'"
-    [options]="options"
-    [readOnly]="false"
-    [autoUpdateContent]="true"
-    [durationBeforeCallback]="0"
-    style="min-height: 60vh; width: 100%; overflow: auto"
-    class="rounded border-solid border-4 border-gray-500 mb-2 md:mb-0"
-  ></div>
+    class="editor-holder rounded border-solid border-4 border-gray-500 mb-2 md:mb-0"
+  >
+    <ngx-monaco-editor
+      [options]="editorOptions"
+      [(ngModel)]="jsonText"
+    ></ngx-monaco-editor>
+  </div>
 
   <div class="flex flex-col md:flex-row">
     <!-- Left side -->
