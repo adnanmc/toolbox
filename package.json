@@ -25,13 +25,13 @@
     "@angular/router": "~10.2.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@materia-ui/ngx-monaco-editor": "^4.0.2",
-    "monaco-editor": "^0.21.2",
+    "firebase": "^7.0.0 || ^8.0.0",
+    "monaco-editor": "^0.18.1",
     "rxjs": "~6.6.0",
     "tailwindcss": "^1.9.6",
     "tslib": "^2.0.0",
     "xlsx": "^0.16.8",
-    "zone.js": "~0.10.2",
-    "firebase": "^7.0.0 || ^8.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1002.0",
