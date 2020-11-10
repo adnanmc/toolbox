@@ -12,7 +12,7 @@ export class JsonToExcelComponent implements OnInit {
 
   jsonText: any;
 
-  fileName: string = 'fileName';
+  fileName: string;
 
   editorOptions = {
     theme: 'vs-dark',
@@ -35,6 +35,10 @@ export class JsonToExcelComponent implements OnInit {
     utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    writeFile(wb, `${this.fileName}.xlsx`);
+    if (this.fileName) {
+      writeFile(wb, `${this.fileName}.xlsx`);
+    } else {
+      writeFile(wb, `fileName.xlsx`);
+    }
   }
 }
