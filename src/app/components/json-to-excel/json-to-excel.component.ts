@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import 'ace-builds/src-noconflict/mode-json';
 @Component({
   selector: 'app-json-to-excel',
   templateUrl: './json-to-excel.component.html',
@@ -7,31 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JsonToExcelComponent implements OnInit {
   constructor() {}
-
   ngOnInit(): void {}
+
+  jsonText: string = '';
 
   fileName: string = 'fileName.xlsx';
 
-  theme = 'vs-dark';
-
-  codeModel = {
-    language: 'json',
-    uri: 'main.json',
-    value: '',
+  options: any = {
+    maxLines: 1000,
+    printMargin: false,
+    wrap: true,
+    keyBinding: 'vscode',
   };
 
-  options = {
-    contextmenu: true,
-    find: true,
-    minimap: {
-      enabled: true,
-    },
-    padding: {
-      top: 10,
-    },
-  };
-
-  onCodeChanged(value) {
-    // console.log('CODE', value);
+  onChange(code) {
+    console.log('new code', code);
+  }
+  resetJaonInput() {
+    this.jsonText = '';
   }
 }

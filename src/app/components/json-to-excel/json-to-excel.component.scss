@@ -1,3 +1,7 @@
+.editor-holder {
+  // height: 300px !important;
+  height: 60vh;
+}
 .editor-itself {
   height: 100%;
 }
@@ -6,18 +10,18 @@
 // }
 // //*[@id="editor"]
 
-@media only screen and (max-width: 425px) {
-  .editor-holder {
-    height: 200px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .editor-holder {
-    height: 400px;
-  }
-}
-@media only screen and (max-width: 1440px) {
-  .editor-holder {
-    height: 500px;
-  }
-}
+// @media only screen and (max-width: 425px) {
+//   .editor-holder {
+//     height: 300px;
+//   }
+// }
+// @media only screen and (max-width: 768px) {
+//   .editor-holder {
+//     height: 500px !important;
+//   }
+// }
+// @media only screen and (max-width: 1440px) {
+//   .editor-holder {
+//     height: 500px;
+//   }
+// }
