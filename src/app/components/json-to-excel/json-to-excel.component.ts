@@ -10,7 +10,7 @@ export class JsonToExcelComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
 
-  jsonText: any;
+  jsonText: string;
 
   fileName: string;
 
@@ -26,9 +26,38 @@ export class JsonToExcelComponent implements OnInit {
   resetJaonInput() {
     this.jsonText = null;
   }
+  flattenJson(data) {
+    var result = {};
+
+    function recurse(cur, prop) {
+      if (Object(cur) !== cur) {
+        result[prop] = cur;
+      } else if (Array.isArray(cur)) {
+        for (var i = 0, l = cur.length; i < l; i++)
+          recurse(cur[i], prop + '[' + i + ']');
+        if (l == 0) result[prop] = [];
+      } else {
+        var isEmpty = true;
+        for (var p in cur) {
+          isEmpty = false;
+          recurse(cur[p], prop ? prop + '.' + p : p);
+        }
+        if (isEmpty && prop) result[prop] = {};
+      }
+    }
+    recurse(data, '');
+    return result;
+  }
   downloadXlFile(): void {
     /* generate worksheet */
-    const ws: WorkSheet = utils.json_to_sheet(JSON.parse(this.jsonText));
+    let tempdata = JSON.stringify(this.flattenJson(JSON.parse(this.jsonText)));
+
+    if (!tempdata.startsWith('[') && !tempdata.endsWith(']')) {
+      tempdata = `[${tempdata}]`;
+    }
+    let parsedJson = JSON.parse(tempdata);
+    // console.log(parsedJson);
+    const ws: WorkSheet = utils.json_to_sheet(parsedJson);
 
     /* generate workbook and add the worksheet */
     const wb: WorkBook = utils.book_new();
