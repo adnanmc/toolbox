@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "deploy": "ng deploy",
     "postcss:build": "postcss src/tw.pcss -o src/twStyles.scss",
     "prestart": "npm run postcss:build",
     "prebuild": "npm run postcss:build -- --env=production"
@@ -25,12 +26,13 @@
     "@angular/router": "~10.2.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@materia-ui/ngx-monaco-editor": "^4.0.2",
+    "file-saver": "^2.0.2",
     "firebase": "^7.0.0 || ^8.0.0",
+    "jsonexport": "^3.0.1",
     "monaco-editor": "^0.21.2",
     "rxjs": "~6.6.0",
     "tailwindcss": "^1.9.6",
     "tslib": "^2.0.0",
-    "xlsx": "^0.16.8",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

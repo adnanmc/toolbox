@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WorkSheet, WorkBook, utils, writeFile } from 'xlsx';
+import * as jsonexport from 'jsonexport/dist';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-json-to-excel',
@@ -26,48 +27,27 @@ export class JsonToExcelComponent implements OnInit {
   resetJaonInput() {
     this.jsonText = null;
   }
-  flattenJson(data) {
-    var result = {};
 
-    function recurse(cur, prop) {
-      if (Object(cur) !== cur) {
-        result[prop] = cur;
-      } else if (Array.isArray(cur)) {
-        for (var i = 0, l = cur.length; i < l; i++)
-          recurse(cur[i], prop + '[' + i + ']');
-        if (l == 0) result[prop] = [];
-      } else {
-        var isEmpty = true;
-        for (var p in cur) {
-          isEmpty = false;
-          recurse(cur[p], prop ? prop + '.' + p : p);
-        }
-        if (isEmpty && prop) result[prop] = {};
-      }
-    }
-    recurse(data, '');
-    return result;
-  }
-  downloadXlFile(): void {
+  downloadCSVFile(): void {
     /* generate worksheet */
-    let tempdata = JSON.stringify(this.flattenJson(JSON.parse(this.jsonText)));
-
-    if (!tempdata.startsWith('[') && !tempdata.endsWith(']')) {
-      tempdata = `[${tempdata}]`;
+    let tempData = this.jsonText;
+    if (!tempData.startsWith('[') && !tempData.endsWith(']')) {
+      tempData = `[${tempData}]`;
     }
-    let parsedJson = JSON.parse(tempdata);
-    // console.log(parsedJson);
-    const ws: WorkSheet = utils.json_to_sheet(parsedJson);
+    // console.log(tempData);
 
-    /* generate workbook and add the worksheet */
-    const wb: WorkBook = utils.book_new();
-    utils.book_append_sheet(wb, ws, 'Sheet1');
-
-    /* save to file */
-    if (this.fileName) {
-      writeFile(wb, `${this.fileName}.xlsx`);
-    } else {
-      writeFile(wb, `fileName.xlsx`);
-    }
+    jsonexport(JSON.parse(tempData), (err, csv) => {
+      if (err) console.error(err);
+      if (err) {
+        console.error(err);
+      } else {
+        var blob = new Blob([csv], { type: 'text/csv' });
+        if (this.fileName) {
+          saveAs(blob, `${this.fileName}.csv`);
+        } else {
+          saveAs(blob, `fileName.csv`);
+        }
+      }
+    });
   }
 }
