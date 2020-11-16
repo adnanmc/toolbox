@@ -41,7 +41,7 @@ export class JsonToExcelComponent implements OnInit {
       if (err) {
         console.error(err);
       } else {
-        var blob = new Blob([csv], { type: 'text/csv' });
+        var blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
         if (this.fileName) {
           saveAs(blob, `${this.fileName}.csv`);
         } else {
